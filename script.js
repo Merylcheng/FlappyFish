@@ -6,11 +6,6 @@ document.addEventListener('DOMContentLoaded' , () => {
     const restartButton = document.getElementById('restartButton');
     
 
-    // const openButton =document.querySelector("[data-open-modal]")
-    // const closeButton =document.querySelector("[data-close-modal]")
-    // const modal =document.querySelector("[data-modal]")
-
-
     let fishX = 220 // location of fish on X-axis
     let fishY = 100 //location of fish on Y-axis
     let gravity = 3 // can change direction with -=/+=
@@ -18,7 +13,7 @@ document.addEventListener('DOMContentLoaded' , () => {
     let gap = 430 //fixed pixel amount between pipes
     let score = 0
 
-    // restartButton.addEventListener('click', startGame);
+    restartButton.addEventListener('click', startGame);
 
     function startGame() { //fish drop when game starts
         fishY -= gravity
@@ -97,51 +92,10 @@ function gameOver() {
     isGameOver = true
     document.removeEventListener('keyup', jump)
 
-// gameOverModal.showModal();
-//         document.querySelector('.score').innerText = score;
-//         restartButton.addEventListener('click', () => {
-//         gameOverModal.close();
-            // Reset the game variables and restart the game
-            // Add your code to reset game variables and start the game again
-
-
-            function hideModal() {
-                modal.style.display = 'none';
-            }
-            
-            function restartGame() {
-                if (
-                    pipeX > 220 && pipeX < 280 && fishX ===220 &&
-                    (fishY < pipeY + 145 || fishY > pipeY + gap -200)||
-                    (fishY > 570 || fishY < 0) )
-                    {
-                        hideModal();
-                }
-
-
-            function showModal() {
-                gameOverModal.style.display = 'block';
-            }
-            
-            restartButton.addEventListener('click', function() {
-                gameOverModal.style.display = 'none';
-            });          
-    
-    
-            // restartButton.addEventListener('click', hideModal);
-            restartButton.addEventListener('click', restartGame);
-
-// Listen for any key press to restart the game
-
-// openButton.addEventListener('click', () => {
-//     modal.showModal()
-// });
-// }
-
-// closeButton.addEventListener('click', () => {
-//     modal.close()
-// })
-
-
-    }}
-)
+gameOverModal.showModal();
+        document.querySelector('.score').innerText = score;
+        restartButton.addEventListener('click', () => {
+        gameOverModal.close();
+        }
+     )};
+    })
