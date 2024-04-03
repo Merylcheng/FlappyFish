@@ -1,0 +1,96 @@
+
+body {
+    display: flex;
+    
+    justify-content: center;
+    /* background-size: cover; */
+    background-size: 100vw 100vh;
+    background-color: rgba (255, 255, 255 0.3);
+    background-image: url(Underwater\ Scene\ jpeg.jpeg);
+     
+}
+
+
+
+.game-container {
+    width: 500px;
+    height: 730px;
+    position: absolute; /*position it based on the parents dimensions and position*/
+    left: 80px;
+    overflow: hidden;
+    border: 1px solid #000;
+    display: flex;
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    
+
+}
+
+#gameOverModal {
+    z-index:10;
+    width: 300px;
+    height: 300px;
+    border-radius: 20px;
+    opacity: 0.80;
+    text-align: center;
+   
+}
+
+
+
+.score {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    font-size: 30px;
+    z-index: 3;
+}
+
+
+
+.sky {
+    background-image: url(Underwater\ Scene\ jpeg.jpeg);
+    width: 500px;
+    height: 580px;
+    position: absolute;
+    
+}
+
+.ground {
+    background-image: url(brick.png);
+    width: 500px;
+    height: 150px;
+    position: absolute;
+    top: 580px;
+    z-index: 3;
+    border: 1px solid #000;
+}
+
+.fish {
+    background-image: url(pixel\ fish.gif);
+    width: 60px;
+    height: 45px;
+    position: absolute;
+   
+}
+
+ .pipe {
+    background-image: url(flappybird-pipe.png);
+    width: 60px;
+    height: 300px;
+    position: absolute;
+    z-index: 2;
+}
+
+.topPipe {
+    background-image: url(topflappybird-pipe\ .png);
+    transform: rotate(180 deg);
+    width: 60px;
+    height: 300px;
+    position: absolute;
+    z-index: 2;
+}
+
