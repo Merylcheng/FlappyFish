@@ -32,6 +32,18 @@ body {
     
 }
 
+#startModal {
+    z-index:12;
+    width: 300px;
+    height: 400px;
+    border-radius: 20px;
+   
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 #gameOverModal {
     z-index:10;
     width: 300px;
@@ -78,6 +90,7 @@ body {
     width: 60px;
     height: 45px;
     position: absolute;
+
    
 }
 

@@ -12,12 +12,35 @@
 
   /*----- functions -----*/
 
-document.addEventListener('DOMContentLoaded' , () => {
-    const fish = document.querySelector('.fish')
-    const gameDisplay = document.querySelector('.game-container')
-    const ground = document.querySelector('.ground')
-    const gameOverModal = document.getElementById('gameOverModal');
-    const restartButton = document.getElementById('restartButton');
+// document.addEventListener('DOMContentLoaded' , () => {
+
+
+
+
+// document.addEventListener('DOMContentLoaded', () => {
+//     const startModal = document.getElementById('startModal');
+//     const startButton = document.getElementById('startButton');  
+ 
+
+//     startModal.style.display = 'block'; // Show the start modal initially
+    
+
+//     startButton.onclick = function() {
+//         startModal.style.display = 'none'; // Hide the start modal
+//         initializeGame(); // Initialize the game
+//     };
+
+
+    // function initializeGame() {
+        document.addEventListener('DOMContentLoaded', () => {
+            const fish = document.querySelector('.fish');
+            const gameDisplay = document.querySelector('.game-container');
+            const ground = document.querySelector('.ground');
+            const gameOverModal = document.getElementById('gameOverModal');
+            const startModal = document.getElementById('startModal');
+            const startButton = document.getElementById('startButton');
+            const restartButton = document.getElementById('restartButton');
+
     
     let fishX = 220 // location of fish on X-axis
     let fishY = 200 //location of fish on Y-axis
@@ -26,12 +49,21 @@ document.addEventListener('DOMContentLoaded' , () => {
     let gap = 430 //fixed pixel amount between pipes
     let score = 0
 
+    startModal.style.display = 'block'; // Show the start modal initially
+
+    startButton.onclick = function() {
+        startModal.style.display = 'none'; // Hide the start modal
+        startGame(); // Start the game
+        document.addEventListener('click', jump);
+    };
+
     restartButton.onclick = function() {
         gameOverModal.style.display = "none";
         restartGame(); // Restart the game when Start button is clicked
         document.addEventListener('click', jump);
       }
-    
+
+
     function startGame() { //fish drop when game starts
         fishY -= gravity
         fish.style.bottom = fishY + 'px' //add 100px 
@@ -105,8 +137,8 @@ function generatePipe() {
         fishY = 200; // Reset bird position
         window.location.reload();
     }
-generatePipe ()
 
+generatePipe();
 
 function gameOver() {
     clearInterval(gameTimerId)
@@ -116,8 +148,8 @@ function gameOver() {
     gameOverModal.style.display = 'block'
 }
 
+    }
 
-
-});
+);
 
 
