@@ -2,15 +2,18 @@
 body {
     display: flex;
     
-    justify-content: center;
-    /* background-size: cover; */
+    justify-content: center; 
+    background-size: cover;
     background-size: 100vw 100vh;
     background-color: rgba (255, 255, 255 0.3);
-    background-image: url(Underwater\ Scene\ jpeg.jpeg);
-     
+    background-image: url(Image/Water\ Fish\ GIF\ -\ Water\ Fish\ Ocean\ -\ Découvrir\ et\ partager\ des\ GIF.gif)
+
+    /* background-image: url(Image/_\ \(1\).gif); */
+    
 }
 
-
+/* background-image: url(Image/Underwaterscene.jpeg); */
+/* background-image: url(Image/Dribbble\ first\ shot\ _\ Fish\ Eye.gif); */
 
 .game-container {
     width: 500px;
@@ -18,15 +21,15 @@ body {
     position: absolute; /*position it based on the parents dimensions and position*/
     left: 80px;
     overflow: hidden;
-    border: 1px solid #000;
+    border: 2px solid black;
     display: flex;
     margin: 0;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 20px;
+    z-index: 3;
     
-
 }
 
 #gameOverModal {
@@ -36,9 +39,10 @@ body {
     border-radius: 20px;
     opacity: 0.80;
     text-align: center;
-   
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
-
 
 
 .score {
@@ -50,17 +54,17 @@ body {
 }
 
 
-
 .sky {
-    background-image: url(Underwater\ Scene\ jpeg.jpeg);
+    background-image: url(Image/Underwaterscene.jpeg);
     width: 500px;
     height: 580px;
     position: absolute;
     
+    
 }
 
 .ground {
-    background-image: url(brick.png);
+    background-image: url(image/brick.png);
     width: 500px;
     height: 150px;
     position: absolute;
@@ -70,7 +74,7 @@ body {
 }
 
 .fish {
-    background-image: url(pixel\ fish.gif);
+    background-image: url(Image/pixel\ fish.gif);
     width: 60px;
     height: 45px;
     position: absolute;
@@ -78,7 +82,7 @@ body {
 }
 
  .pipe {
-    background-image: url(flappybird-pipe.png);
+    background-image: url(Image/flappybird-pipe.png);
     width: 60px;
     height: 300px;
     position: absolute;
@@ -86,7 +90,7 @@ body {
 }
 
 .topPipe {
-    background-image: url(topflappybird-pipe\ .png);
+    background-image: url(Image/topflappybird-pipe\ .png);
     transform: rotate(180 deg);
     width: 60px;
     height: 300px;

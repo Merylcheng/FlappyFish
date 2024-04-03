@@ -1,3 +1,17 @@
+  /*----- constants -----*/
+
+
+  /*----- state variables -----*/
+
+
+  /*----- cached elements  -----*/
+
+
+  /*----- event listeners -----*/
+
+
+  /*----- functions -----*/
+
 document.addEventListener('DOMContentLoaded' , () => {
     const fish = document.querySelector('.fish')
     const gameDisplay = document.querySelector('.game-container')
@@ -5,21 +19,23 @@ document.addEventListener('DOMContentLoaded' , () => {
     const gameOverModal = document.getElementById('gameOverModal');
     const restartButton = document.getElementById('restartButton');
     
-
     let fishX = 220 // location of fish on X-axis
-    let fishY = 100 //location of fish on Y-axis
+    let fishY = 200 //location of fish on Y-axis
     let gravity = 3 // can change direction with -=/+=
     let isGameOver = false
     let gap = 430 //fixed pixel amount between pipes
     let score = 0
 
-    restartButton.addEventListener('click', startGame);
-
+    restartButton.onclick = function() {
+        gameOverModal.style.display = "none";
+        restartGame(); // Restart the game when Start button is clicked
+        document.addEventListener('click', jump);
+      }
+    
     function startGame() { //fish drop when game starts
         fishY -= gravity
         fish.style.bottom = fishY + 'px' //add 100px 
         fish.style.left= fishX + 'px'
-      
     }
    
     let gameTimerId = setInterval(startGame, 20) 
@@ -29,7 +45,7 @@ document.addEventListener('DOMContentLoaded' , () => {
         fish.style.bottom = fishY + 'px'
         console.log(fishY)
     }
-    
+
     document.addEventListener('keyup', jump)
 
 function generatePipe() {
@@ -83,19 +99,25 @@ function generatePipe() {
     let timerId = setInterval(movePipe, 20)    
     setTimeout(generatePipe, 3000)
     }
-   
+
+    function restartGame() {
+        isGameOver = false; // Reset game over flag
+        fishY = 200; // Reset bird position
+        window.location.reload();
+    }
 generatePipe ()
+
 
 function gameOver() {
     clearInterval(gameTimerId)
     console.log('gameover')
     isGameOver = true
-    document.removeEventListener('keyup', jump)
+    document.removeEventListener('click', jump)
+    gameOverModal.style.display = 'block'
+}
 
-gameOverModal.showModal();
-        document.querySelector('.score').innerText = score;
-        restartButton.addEventListener('click', () => {
-        gameOverModal.close();
-        }
-     )};
-    })
+
+
+});
+
+
