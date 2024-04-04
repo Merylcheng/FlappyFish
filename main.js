@@ -5,6 +5,8 @@ const fish = document.querySelector('.fish');
         const startModal = document.getElementById('startModal');
         const startButton = document.getElementById('startButton');
         const restartButton = document.getElementById('restartButton');
+        const winModal = document.getElementById('winModal');
+        const replayButton = document.getElementById('replayButton');
         
     
     let fishX = 220 // location of fish on X-axis
@@ -15,7 +17,8 @@ const fish = document.querySelector('.fish');
     let gap = 430 //fixed pixel amount between pipes
     let score = 0
     let gameTimerId = setInterval(startGame, 20) 
-    let highScore = localStorage.getItem('flappyBirdHighScore') || 0;
+    let highScore = localStorage.getItem('flappyBirdHighScore') || 0; /*initialise highscore from local*/
+    let pipesPassed = 0; // Variable to keep track of pipes passed
 
     
     startModal.style.display = 'block'; // Show the start modal initially
@@ -32,6 +35,12 @@ const fish = document.querySelector('.fish');
     restartButton.onclick = function() {
         gameOverModal.style.display = "none";
         restartGame(); // Restart the game when Start button is clicked
+        document.addEventListener('click', jump);
+      }
+
+      replayButton.onclick = function() { //button for winModal share restartGame function
+        winModal.style.display = "none";
+        restartGame(); // 
         document.addEventListener('click', jump);
       }
 
@@ -85,12 +94,16 @@ function generatePipe() {
             gameDisplay.removeChild(topPipe)
         }
 
-        if (!pipe.passed && pipeX < fishX - 20) {
+        if (!pipe.passed && pipeX < fishX - 20) { //Track the number of pipes passed
+            pipesPassed++; // 
+            if (pipesPassed === 1) { // Show win modal if 3 pipes are passed
+                showWinModal(); 
+            }
             score++; // Increase the score by 1
             console.log('score',score);
             document.querySelector('.score').innerText = 'Score: ' + score; // Update the score display
             pipe.passed = true;
-          }
+        }
     
         //Conditions of GameOver//
         if (
@@ -139,7 +152,12 @@ function initHighScore() { // Add this function to initialize the high score dis
 document.querySelector('.high-score-value').innerText = highScore;
 }
 
-
 initHighScore();
+
+function showWinModal() {
+    isGameRunning = false; // Stop the game
+    document.removeEventListener('click', jump)
+    winModal.style.display = 'block';
+}
 
 
