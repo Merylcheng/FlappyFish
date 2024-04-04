@@ -56,7 +56,19 @@ body {
     transform: translate(-50%, -50%);
  }
  
- 
+ #winModal {
+    display: none;
+    z-index:10;
+    width: 300px;
+    height: 300px;
+    border-radius: 20px;
+    opacity: 0.80;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+ }
+
  @font-face {
     font-family: 'FlappybirdyFont';
     src: url('Image/FlappybirdyRegular-KaBW.ttf');
@@ -146,5 +158,8 @@ body {
     z-index: 2;
  }
  
+ .high-score-value {
+    font-size: 30px;
+ }
 
 

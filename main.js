@@ -1,16 +1,4 @@
-  /*----- constants -----*/
-
-  /*----- state variables -----*/
-
-  /*----- cached elements  -----*/
-
-  /*----- event listeners -----*/
-
-  /*----- functions -----*/
-
-
-    // document.addEventListener('DOMContentLoaded', () => {
-        const fish = document.querySelector('.fish');
+const fish = document.querySelector('.fish');
         const gameDisplay = document.querySelector('.game-container');
         const ground = document.querySelector('.ground');
         const gameOverModal = document.getElementById('gameOverModal');
@@ -27,6 +15,7 @@
     let gap = 430 //fixed pixel amount between pipes
     let score = 0
     let gameTimerId = setInterval(startGame, 20) 
+    let highScore = localStorage.getItem('flappyBirdHighScore') || 0;
 
     
     startModal.style.display = 'block'; // Show the start modal initially
@@ -127,6 +116,10 @@ function generatePipe() {
 
 generatePipe();
 
+function updateHighScore() {
+    localStorage.setItem('flappyBirdHighScore', highScore);
+}
+
 function gameOver() {
     clearInterval(gameTimerId)
     console.log('gameover')
@@ -134,10 +127,22 @@ function gameOver() {
     isGameRunning = false; // Set game running flag to false
     document.removeEventListener('click', jump)
     gameOverModal.style.display = 'block'
+
+
+if (score > highScore) {
+    highScore = score;
+    document.querySelector('.high-score-value').innerText = highScore;
+    updateHighScore(); // Update the high score in local storage
+}
 }
 
-//     }
 
-// );
+
+function initHighScore() { // Add this function to initialize the high score display
+document.querySelector('.high-score-value').innerText = highScore;
+}
+
+
+initHighScore();
 
 
