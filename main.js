@@ -43,7 +43,6 @@ const fish = document.querySelector('.fish');
         fish.style.left= fishX + 'px'
     }
    
-    // let gameTimerId = setInterval(startGame, 20) 
 
     function jump() {
         if (!isGameRunning) return; 
@@ -129,14 +128,12 @@ function gameOver() {
     gameOverModal.style.display = 'block'
 
 
-if (score > highScore) {
-    highScore = score;
-    document.querySelector('.high-score-value').innerText = highScore;
-    updateHighScore(); // Update the high score in local storage
-}
-}
-
-
+    if (score > highScore) { // Update high score if necessary
+      highScore = score;
+      document.querySelector('.high-score-value').innerText = highScore;
+      updateHighScore(); // 
+     }
+   }
 
 function initHighScore() { // Add this function to initialize the high score display
 document.querySelector('.high-score-value').innerText = highScore;
