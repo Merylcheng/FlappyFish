@@ -1,21 +1,16 @@
-
 body {
     display: flex;
-    
-    justify-content: center; 
+   
+    justify-content: center;
     background-size: cover;
     background-size: 100vw 100vh;
     background-color: rgba (255, 255, 255 0.3);
     background-image: url(Image/Water\ Fish\ GIF\ -\ Water\ Fish\ Ocean\ -\ Découvrir\ et\ partager\ des\ GIF.gif)
-
-    /* background-image: url(Image/_\ \(1\).gif); */
-    
-}
-
-/* background-image: url(Image/Underwaterscene.jpeg); */
-/* background-image: url(Image/Dribbble\ first\ shot\ _\ Fish\ Eye.gif); */
-
-.game-container {
+   
+ }
+ 
+ 
+ .game-container {
     width: 500px;
     height: 730px;
     position: absolute; /*position it based on the parents dimensions and position*/
@@ -29,10 +24,27 @@ body {
     transform: translate(-50%, -50%);
     border-radius: 20px;
     z-index: 3;
-    
-}
-
-#gameOverModal {
+   
+ }
+ 
+ 
+ #startModal {
+    z-index:100;
+    width: 500px;
+    height: 730px;
+    border-radius: 20px;
+    text-align: center;
+    border: 2px solid black;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url(Image/Underwaterscene.jpeg);
+    background-size: cover;
+    /* background-image: url(Image/pixel\ fish.gif); */
+ }
+ 
+ 
+ #gameOverModal {
     z-index:10;
     width: 300px;
     height: 300px;
@@ -42,28 +54,61 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
-
-
-.score {
+ }
+ 
+ 
+ @font-face {
+    font-family: 'FlappybirdyFont';
+    src: url('Image/FlappybirdyRegular-KaBW.ttf');
+   
+ }
+ 
+ 
+ .startModal h1 {
+    font-family: 'FlappybirdyFont';
+    font-weight: 500;
+    font-size: 130px;
+   
+ }
+ 
+ 
+ .startModal button {
+    background-color: #d192cd;
+    color: white;
+    padding: 20px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 26px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    transition: background-color 0.3s ease;
+  }
+ 
+   button:hover {
+    background-color: #a9a602;
+  }
+ 
+ 
+ .score {
     position: absolute;
     top: 30px;
     left: 30px;
     font-size: 30px;
     z-index: 3;
-}
-
-
-.sky {
+ }
+ 
+ 
+ .sky {
     background-image: url(Image/Underwaterscene.jpeg);
+   
     width: 500px;
     height: 580px;
     position: absolute;
-    
-    
-}
-
-.ground {
+   
+ }
+ 
+ 
+ .ground {
     background-image: url(image/brick.png);
     width: 500px;
     height: 150px;
@@ -71,30 +116,35 @@ body {
     top: 580px;
     z-index: 3;
     border: 1px solid #000;
-}
-
-.fish {
+ }
+ 
+ 
+ .fish {
     background-image: url(Image/pixel\ fish.gif);
     width: 60px;
     height: 45px;
     position: absolute;
-   
-}
-
+ 
+  
+ }
+ 
+ 
  .pipe {
     background-image: url(Image/flappybird-pipe.png);
     width: 60px;
     height: 300px;
     position: absolute;
     z-index: 2;
-}
-
-.topPipe {
+ }
+ 
+ .topPipe { /*replicate bottom half of pipes to the top*/
     background-image: url(Image/topflappybird-pipe\ .png);
     transform: rotate(180 deg);
     width: 60px;
     height: 300px;
     position: absolute;
     z-index: 2;
-}
+ }
+ 
+
 

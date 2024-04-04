@@ -1,19 +1,15 @@
   /*----- constants -----*/
 
-
   /*----- state variables -----*/
-
 
   /*----- cached elements  -----*/
 
-
   /*----- event listeners -----*/
-
 
   /*----- functions -----*/
 
 
-    document.addEventListener('DOMContentLoaded', () => {
+    // document.addEventListener('DOMContentLoaded', () => {
         const fish = document.querySelector('.fish');
         const gameDisplay = document.querySelector('.game-container');
         const ground = document.querySelector('.ground');
@@ -140,8 +136,8 @@ function gameOver() {
     gameOverModal.style.display = 'block'
 }
 
-    }
+//     }
 
-);
+// );
 
 
