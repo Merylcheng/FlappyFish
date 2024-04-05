@@ -7,13 +7,14 @@ const fish = document.querySelector('.fish');
         const restartButton = document.getElementById('restartButton');
         const winModal = document.getElementById('winModal');
         const replayButton = document.getElementById('replayButton');
+        const continueButton = document.getElementById('continueButton');
         
     
     let fishX = 220 // location of fish on X-axis
     let fishY = 200 //location of fish on Y-axis
     let gravity = 1.5 // can change direction with -=/+=
     let isGameOver = false
-    let isGameRunning = false; // flag to track whether the game is running
+    let isGameRunning = false; // flag to track whether the game is running and stops the game if true
     let gap = 430 //fixed pixel amount between pipes
     let score = 0
     let gameTimerId = setInterval(startGame, 20) 
@@ -44,6 +45,15 @@ const fish = document.querySelector('.fish');
         document.addEventListener('click', jump);
       }
 
+      continueButton.onclick = function() {
+        winModal.style.display = "none";// Hide the win modal
+        // Continue the game
+        isGameRunning = true; // stops the game
+        document.addEventListener('click', jump);
+        // gameTimerId = setInterval(startGame, 30); // Start the game loop
+        // generatePipe();
+    };
+
 
     function startGame() { //fish drop when game starts
         if (!isGameRunning) return; 
@@ -63,17 +73,17 @@ const fish = document.querySelector('.fish');
     document.addEventListener('keyup', jump)
 
 function generatePipe() {
-    if (!isGameRunning) return; 
+    if (!isGameRunning || isGameOver) return;
     let pipeX = 500
     let randomHeight = Math.random() *60 //pipe generate from 0 to 60 from the ground
     let pipeY = randomHeight
     const pipe = document.createElement('div')
     const topPipe = document.createElement('div')
 
-    if (!isGameOver) {
+    // if (!isGameOver) {
         pipe.classList.add('pipe')
         topPipe.classList.add('topPipe')
-    }
+    // }
     gameDisplay.appendChild(pipe)
     gameDisplay.appendChild(topPipe)
     pipe.style.left = pipeX + 'px'
@@ -83,7 +93,7 @@ function generatePipe() {
 
     
    function movePipe() {
-    if (!isGameRunning) return; 
+    if (!isGameRunning || isGameOver) return;
     pipeX -=2
     pipe.style.left = pipeX + 'px'
     topPipe.style.left = pipeX + 'px'
@@ -153,6 +163,7 @@ document.querySelector('.high-score-value').innerText = highScore;
 }
 
 initHighScore();
+
 
 function showWinModal() {
     isGameRunning = false; // Stop the game
