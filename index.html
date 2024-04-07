@@ -8,42 +8,44 @@
 </head>
 <body>
 
-
+<audio controls autoplay>
+ <source src="Image/01. Stardew Valley Overture.mp3">
+</audio>
   
 <div class="game-container">
-  <dialog id="startModal" class="startModal">
-    <h1>Flappy Fish</h1>
-   
-   
-    <button id="startButton">Start</button>
+    <dialog id="startModal" class="startModal">
+     <h1>Flappy Fish</h1>
+     <h2>Select Difficulty Level:</h2>
+      <button id="easyButton">Easy</button>
+      <button id="mediumButton">Medium</button>
+      <button id="hardButton">Hard</button>
+      <br>
+      <button id="startButton">Start</button>
   </dialog>
 
-       <dialog id="gameOverModal" class="gameOverModal">
-    <h1>Game Over!</h1>
-    <div class="high-score">High Score: <span class="high-score-value">0</span></div>
-    
-    <button id="restartButton">Restart</button>
-   
-   </dialog>
+  <dialog id="gameOverModal" class="gameOverModal">
+     <h1>Game Over!</h1>
+     <h2>Yikes! You lose</h2>
+      <div class="high-score">High Score: <span class="high-score-value">0</span></div>
+      <br>
+      <button id="restartButton">Restart</button>
+  </dialog>
 
-   <dialog id="winModal" class="winModal">
-    <h1>Congratulations! You Win!</h1>
-    <p>hi winner would you like to continue the game?</p>
-   
-    <button id="replayButton">Replay</button>
-    <button id="continueButton">Continue</button>
+  <dialog id="winModal" class="winModal">
+    <h1>Congratulations! <br>You Win!</h1>
+     <p>Hi winner would you like to continue the game?</p>
+     <button id="replayButton">Replay</button>
+     <button id="continueButton">Continue</button>
+  </dialog>
+
+  <div class="sky">
+    <div class="score">Score: 0</div>
+
+    <div class="fish"></div>
+  </div>
   
-  </dialog>
-
-      <div class="sky">
-
-
-        <div class="score">Score: 0</div>
-           <div class="fish"></div>
-           </div>
-      <div class='ground'></div>
-
-    </div>
+  <div class='ground'></div>
+  </div>
 
   <script src="main.js"></script>
 </body>
