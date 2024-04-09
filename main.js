@@ -27,6 +27,7 @@
       easyButton.onclick = function() {
         setDifficulty('easy');
         easyButton.style.backgroundColor = 'orange'
+        scoreEasy++
         };
 
       mediumButton.onclick = function() {
@@ -109,7 +110,7 @@ function movePipe() {
     pipe.style.left = pipeX + 'px'
     topPipe.style.left = pipeX + 'px'
 
-        if (pipeX === -60) {
+        if (pipeX === -60) { //Check if pipe moved completely off screen
             clearInterval(timerId)
             gameDisplay.removeChild(pipe)
             gameDisplay.removeChild(topPipe)

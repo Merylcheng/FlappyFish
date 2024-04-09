@@ -154,7 +154,7 @@ Here’s some future ideas that can be integrated:
 
 You may try out the game by clicking the following link!
 
-- //insert url here//
+https://flappy-fish.vercel.app
 
 ### References
 
